@@ -91,4 +91,69 @@ public interface StuDao {
      * @return
      */
     int insertRecDao(String sno, String dno, String btime, String breason);
+
+    /**
+     * 获取指定宿舍号信息
+     * @param dno
+     * @return
+     */
+    List<Room> listRoomDa0(String dno);
+
+    /**
+     * 获取全部快件信息
+     * @return
+     * @param limit
+     * @param offset
+     */
+    List<Express> listExpDao(int limit, int offset);
+
+    /**
+     * 获取数量
+     * @param tableName
+     * @return
+     */
+    int num(String tableName);
+
+    /**
+     * 插入快件信息
+     * @param sname
+     * @param dno
+     * @param marrive
+     * @param mnumber
+     * @return
+     */
+    int insertExpDao(String sname, String dno, String marrive, String mnumber);
+
+    /**
+     * 获取全部维修信息
+     * @param limit
+     * @param offset
+     * @return
+     */
+    List<Things> listSerDao(int limit, int offset);
+
+    /**
+     * 获取全部离校与返校信息
+     * @param limit
+     * @param offset
+     * @return
+     */
+    List<LR> listLR(int limit, int offset);
+
+    /**
+     * 更新维修时间
+     * @param dno
+     * @param pno
+     * @param rsolve
+     * @return
+     */
+    int updateSerDao(String dno, String pno, String rsolve);
+
+    /**
+     * 获取全部晚归时间
+     * @param limit
+     * @param offset
+     * @return
+     */
+    List<REC> listRecDao(int limit, int offset);
 }

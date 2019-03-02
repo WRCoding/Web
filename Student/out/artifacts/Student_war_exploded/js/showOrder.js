@@ -6,7 +6,7 @@ var TableInit = function () {
 
             url: 'data',         //请求后台的URL（*）
 
-            method: 'get',                      //请求方式（*）
+            method: 'post',                      //请求方式（*）
 
             // toolbar: '#toolbar',                //工具按钮用哪个容器
 
@@ -26,11 +26,11 @@ var TableInit = function () {
 
             pageNumber: 1,                       //初始化加载第一页，默认第一页
 
-            pageSize: 1,                       //每页的记录行数（*）
+            pageSize: 5,                       //每页的记录行数（*）
 
-            pageList: [1],        //可供选择的每页的行数（*）
+            pageList: [5],        //可供选择的每页的行数（*）
 
-            contentType: "application/x-www-form-urlencoded",   //重要选项,必填
+            contentType:"application/x-www-form-urlencoded",   //重要选项,必填
 
             showColumns: true,                  //是否显示所有的列
 
@@ -44,20 +44,32 @@ var TableInit = function () {
 
             uniqueId: "no",                     //每一行的唯一标识，一般为主键列
 
-            showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+            //showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
 
-            cardView: false,                    //是否显示详细视图
+            cardView: true,                    //是否显示详细视图
 
-            detailView: false,                   //是否显示父子表
+            detailView: true,                   //是否显示父子表
 
             columns: [
                 {
-                    field: 'id',
-                    title: 'id'
+                    field: 'sname',
+                    title: '姓名'
                 }, {
 
-                    field: 'num',
-                    title: 'num'
+                    field: 'dno',
+                    title: '宿舍号'
+                }, {
+
+                    field: 'marrive',
+                    title: '到达时间'
+                }, {
+
+                    field: 'mreceive',
+                    title: '取件时间'
+                }, {
+
+                    field: 'mnumber',
+                    title: '数量'
                 }
             ]
             // rowStyle: function (row, index) {
@@ -92,7 +104,8 @@ var TableInit = function () {
 
         var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             limit: params.limit,    //params.limit,   页面大小
-            offset: params.offset
+            offset: params.offset,
+            per:"express"
         };
 
 

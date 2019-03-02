@@ -27,12 +27,30 @@ public class InsertServlet extends HttpServlet {
         String per = req.getParameter("per");
         if(per.equals("lr")){
             lr(req,resp);
-        }
-        if(per.equals("service")){
+        } else if(per.equals("service")){
             ser(req,resp);
-        }
-        if(per.equals("rec")){
+        } else if(per.equals("rec")){
             rec(req,resp);
+        } else if(per.equals("exp")){
+            exp(req,resp);
+        }
+    }
+
+    private void exp(HttpServletRequest req, HttpServletResponse resp) {
+        String sname = req.getParameter("sname");
+        String dno = req.getParameter("dno");
+        String marrive = req.getParameter("marrive");
+        String mnumber = req.getParameter("mnumber");
+
+        int index = stuService.insertExp(sname,dno,marrive,mnumber);
+
+        if(index>0){
+            System.out.println("插入成功");
+            try {
+                resp.sendRedirect("s?per=express");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

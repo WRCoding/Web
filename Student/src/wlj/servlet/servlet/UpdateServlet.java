@@ -25,11 +25,28 @@ public class UpdateServlet extends HttpServlet {
 
         String value = req.getParameter("value");
         String name = ((User)req.getSession().getAttribute("user")).getUname();
-
+        String per = req.getParameter("per");
+        if(per.equals("ser")){
+            upSer(req,resp);
+        }
         int index = stuService.updateTime(name,value);
         if(index>0){
             System.out.println("修改成功");
             resp.getWriter().write(value);
+        }
+    }
+
+    private void upSer(HttpServletRequest req, HttpServletResponse resp) {
+        String dno = req.getParameter("dno");
+        String pno = req.getParameter("pno");
+        String rsolve = req.getParameter("rsolve");
+        int index = stuService.updateSer(dno,pno,rsolve);
+        if(index>0){
+            try {
+                resp.sendRedirect("adminSer.jsp");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

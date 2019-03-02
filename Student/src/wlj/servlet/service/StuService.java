@@ -92,4 +92,69 @@ public interface StuService {
      * @return
      */
     int insertREC(String sno, String dno, String btime, String breason);
+
+    /**
+     * 获取指定宿舍号信息
+     * @param dno
+     * @return
+     */
+    List<Room> listRoom(String dno);
+
+    /**
+     * 获取全部的快件信息
+     * @return
+     * @param limit
+     * @param offset
+     */
+    List<Express> listExp(int limit, int offset);
+
+    /**
+     * 返回数量
+     * @return
+     * @param tableName
+     */
+    int num(String tableName);
+
+    /**
+     * 插入快件信息
+     * @param sname
+     * @param dno
+     * @param marrive
+     * @param mnumber
+     * @return
+     */
+    int insertExp(String sname, String dno, String marrive, String mnumber);
+
+    /**
+     * 获取全部维修信息
+     * @param limit
+     * @param offset
+     * @return
+     */
+    List<Things> listSer(int limit, int offset);
+
+    /**
+     * 获取全部离校与返校信息
+     * @param limit
+     * @param offset
+     * @return
+     */
+    List<LR> listLR(int limit, int offset);
+
+    /**
+     * 更新维修时间
+     * @param dno
+     * @param pno
+     * @param rsolve
+     * @return
+     */
+    int updateSer(String dno, String pno, String rsolve);
+
+    /**
+     * 获取全部晚归信息
+     * @param limit
+     * @param offset
+     * @return
+     */
+    List<REC> listRec(int limit, int offset);
 }

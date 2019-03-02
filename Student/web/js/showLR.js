@@ -52,24 +52,20 @@ var TableInit = function () {
 
             columns: [
                 {
-                    field: 'sname',
-                    title: '姓名'
+                    field: 'sno',
+                    title: '学号'
                 }, {
 
                     field: 'dno',
                     title: '宿舍号'
                 }, {
 
-                    field: 'marrive',
-                    title: '到达时间'
+                    field: 'ltime',
+                    title: '离校时间'
                 }, {
 
-                    field: 'mreceive',
-                    title: '取件时间'
-                }, {
-
-                    field: 'mnumber',
-                    title: '数量'
+                    field: 'lreturn',
+                    title: '返校时间'
                 }
             ]
             // rowStyle: function (row, index) {
@@ -105,7 +101,7 @@ var TableInit = function () {
         var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             limit: params.limit,    //params.limit,   页面大小
             offset: params.offset,
-            per:"express"
+            per:"lr"
         };
 
 

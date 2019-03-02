@@ -67,5 +67,45 @@ public class StuServiceImp implements StuService {
         return stuDao.insertRecDao(sno,dno,btime,breason);
     }
 
+    @Override
+    public List<Room> listRoom(String dno) {
+        return stuDao.listRoomDa0(dno);
+    }
+
+    @Override
+    public List<Express> listExp(int limit, int offset) {
+        return stuDao.listExpDao(limit,offset);
+    }
+
+    @Override
+    public int num(String tableName) {
+        return stuDao.num(tableName);
+    }
+
+    @Override
+    public int insertExp(String sname, String dno, String marrive, String mnumber) {
+        return stuDao.insertExpDao(sname,dno,marrive,mnumber);
+    }
+
+    @Override
+    public List<Things> listSer(int limit, int offset) {
+        return stuDao.listSerDao(limit,offset);
+    }
+
+    @Override
+    public List<LR> listLR(int limit, int offset) {
+        return stuDao.listLR(limit,offset);
+    }
+
+    @Override
+    public int updateSer(String dno, String pno, String rsolve) {
+        return stuDao.updateSerDao(dno,pno,rsolve);
+    }
+
+    @Override
+    public List<REC> listRec(int limit, int offset) {
+        return stuDao.listRecDao(limit,offset);
+    }
+
 
 }

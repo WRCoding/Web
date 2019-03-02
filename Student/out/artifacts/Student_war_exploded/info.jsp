@@ -35,7 +35,8 @@
             <span class="navbar-brand">学生宿舍管理系统</span>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <span class="navbar-right navbar-brand">${user.uname}</span>
+            <span class="navbar-right navbar-brand">${user.uname}${user.utype==2?"(宿管)":"(学生)"}</span>
+            <%--<span class="navbar-right navbar-brand"></span>--%>
         </div>
     </div>
 </nav>

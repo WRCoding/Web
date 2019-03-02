@@ -322,5 +322,197 @@ public class StuDaoImpl implements StuDao {
         return index;
     }
 
+    @Override
+    public List<Room> listRoomDa0(String dno) {
+        getConnection();
+        List<Room> list = new ArrayList<>();
+        try {
+            String sql = "select  *from  dormroom where dno=?";
+            pa = conn.prepareStatement(sql);
+            pa.setString(1, dno);
+            rs = pa.executeQuery();
+            while (rs.next()){
+                Room room = new Room();
+                room.setSon(rs.getString(1));
+                room.setSname(rs.getString(2));
+                room.setSex(rs.getString(3));
+                room.setSdept(rs.getString(4));
+                room.setDno(rs.getString(5));
+                room.setScheckin(rs.getString(6));
+                list.add(room);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            release();
+        }
+        return list;
+    }
 
+    @Override
+    public List<Express> listExpDao(int limit, int offset) {
+        getConnection();
+        List<Express> list = new ArrayList<>();
+        try {
+            System.out.println("offset: "+offset);
+            String sql = "select  *from wexpress where id>? and id<=?";
+            pa = conn.prepareStatement(sql);
+            pa.setInt(1,offset );
+            pa.setInt(2, offset+limit);
+            rs = pa.executeQuery();
+            while (rs.next()){
+                Express express = new Express();
+                express.setSname(rs.getString(1));
+                express.setDno(rs.getString(2));
+                express.setMarrive(rs.getString(3));
+                express.setMreceive(rs.getString(4));
+                express.setMnumber(rs.getInt(5));
+                list.add(express);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            release();
+        }
+        return list;
+    }
+
+    @Override
+    public int num(String tableName) {
+        getConnection();
+        int index = 0;
+        try {
+            String sql = "select  count(*) from "+tableName;
+            pa = conn.prepareStatement(sql);
+            rs = pa.executeQuery();
+            while (rs.next()){
+                index = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            release();
+        }
+        return index;
+    }
+
+    @Override
+    public int insertExpDao(String sname, String dno, String marrive, String mnumber) {
+        getConnection();
+        int index = 0;
+        try {
+            String sql = "insert into wexpress(sname,dno,marrive,mnumber) values (?,?,?,?)";
+            pa = conn.prepareStatement(sql);
+            pa.setString(1, sname);
+            pa.setString(2, dno);
+            pa.setString(3, marrive);
+            pa.setString(4, mnumber);
+            index = pa.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            release();
+        }
+        return index;
+    }
+
+    @Override
+    public List<Things> listSerDao(int limit, int offset) {
+        getConnection();
+        List<Things> list = new ArrayList<>();
+        try {
+            System.out.println("offset: "+offset);
+            String sql = "select  *from service where id>? and id<=?";
+            pa = conn.prepareStatement(sql);
+            pa.setInt(1,offset );
+            pa.setInt(2, offset+limit);
+            rs = pa.executeQuery();
+            while (rs.next()){
+                Things things = new Things();
+                things.setDno(rs.getString(1));
+                things.setPno(rs.getInt(2));
+                things.setRsubmit(rs.getString(3));
+                things.setRsolve(rs.getString(4));
+                things.setReason(rs.getString(5));
+                list.add(things);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            release();
+        }
+        return list;
+    }
+
+    @Override
+    public List<LR> listLR(int limit, int offset) {
+        getConnection();
+        List<LR> list = new ArrayList<>();
+        try {
+            System.out.println("offset: "+offset);
+            String sql = "select  *from lr where id>? and id<=?";
+            pa = conn.prepareStatement(sql);
+            pa.setInt(1,offset );
+            pa.setInt(2, offset+limit);
+            rs = pa.executeQuery();
+            while (rs.next()){
+                LR lr = new LR();
+                lr.setSno(rs.getString(1));
+                lr.setDno(rs.getString(2));
+                lr.setLtime(rs.getString(3));
+                lr.setLreturn(rs.getString(4));
+                list.add(lr);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            release();
+        }
+        return list;
+    }
+
+    @Override
+    public int updateSerDao(String dno, String pno, String rsolve) {
+        getConnection();
+        int index = 0;
+        String sql = "update service set rsolve=? where dno=? and pno=?";
+        try {
+            pa=conn.prepareStatement(sql);
+            pa.setString(1,rsolve );
+            pa.setString(2,dno );
+            pa.setString(3,pno );
+            index = pa.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return index;
+    }
+
+    @Override
+    public List<REC> listRecDao(int limit, int offset) {
+        getConnection();
+        List<REC> list = new ArrayList<>();
+        try {
+            System.out.println("offset: "+offset);
+            String sql = "select  *from record where id>? and id<=?";
+            pa = conn.prepareStatement(sql);
+            pa.setInt(1,offset );
+            pa.setInt(2, offset+limit);
+            rs = pa.executeQuery();
+            while (rs.next()){
+                REC rec = new REC();
+                rec.setSno(rs.getString(2));
+                rec.setDno(rs.getString(3));
+                rec.setBtime(rs.getString(4));
+                rec.setBreason(rs.getString(5));
+                list.add(rec);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            release();
+        }
+        return list;
+    }
 }

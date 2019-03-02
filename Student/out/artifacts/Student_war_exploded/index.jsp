@@ -31,7 +31,7 @@
 
 <div class="container">
 
-  <form class="form-signin" method="get" action="s">
+  <form class="form-signin" method="post" action="s">
     <input type="hidden" name="per" value="login">
     <h2 class="form-signin-heading">学生宿舍管理系统登录</h2>
     <label for="inputEmail" class="sr-only">User</label>
