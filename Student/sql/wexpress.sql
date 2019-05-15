@@ -1,9 +1,0 @@
-INSERT INTO `wexpress`(`sname`, `dno`, `marrive`, `mreceive`, `mnumber`, `id`) VALUES ('小小', '408', '2019-02-01', '2019-02-09', 0, 1);
-INSERT INTO `wexpress`(`sname`, `dno`, `marrive`, `mreceive`, `mnumber`, `id`) VALUES ('女女', '666', '2019-02-07', NULL, 4, 2);
-INSERT INTO `wexpress`(`sname`, `dno`, `marrive`, `mreceive`, `mnumber`, `id`) VALUES ('男男', '408', '2019-02-19', NULL, 2, 3);
-INSERT INTO `wexpress`(`sname`, `dno`, `marrive`, `mreceive`, `mnumber`, `id`) VALUES ('小明', '234', '2019-03-12', NULL, 2, 4);
-INSERT INTO `wexpress`(`sname`, `dno`, `marrive`, `mreceive`, `mnumber`, `id`) VALUES ('小李', '435', '2019-03-01', NULL, 6, 5);
-INSERT INTO `wexpress`(`sname`, `dno`, `marrive`, `mreceive`, `mnumber`, `id`) VALUES ('晓红', '267', '2019-03-11', NULL, 2, 7);
-INSERT INTO `wexpress`(`sname`, `dno`, `marrive`, `mreceive`, `mnumber`, `id`) VALUES ('小赵', '726', '2019-03-01', NULL, 1, 8);
-INSERT INTO `wexpress`(`sname`, `dno`, `marrive`, `mreceive`, `mnumber`, `id`) VALUES ('小刘', '478', '2018-12-27', NULL, 7, 9);
-INSERT INTO `wexpress`(`sname`, `dno`, `marrive`, `mreceive`, `mnumber`, `id`) VALUES ('铁柱', '765', '2018-09-08', NULL, 2, 10);
